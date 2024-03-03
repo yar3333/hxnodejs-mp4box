@@ -1,7 +1,10 @@
 package js.hxnodejs.mp4box;
 
-@:native("ArrayBuffer")
-extern class MP4ArrayBuffer extends js.lib.ArrayBuffer
+abstract MP4ArrayBuffer(js.lib.ArrayBuffer)
 {
-    var fileStart: Int;
+    public static inline function fromArrayBuffer(buf:js.lib.ArrayBuffer, fileStart:Int) : MP4ArrayBuffer
+    {
+        (cast buf).fileStart = fileStart;
+        return cast buf;
+    }
 }
