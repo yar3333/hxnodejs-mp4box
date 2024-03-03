@@ -1,0 +1,73 @@
+package js.hxnodejs.mp4box;
+
+@:jsRequire("mp4box", "ISOFile")
+extern class ISOFile
+{
+	var boxes : Array<js.hxnodejs.mp4box.boxParser.Box>;
+	var mdats : Array<js.hxnodejs.mp4box.boxParser.MdatBox>;
+	var moofs : Array<js.hxnodejs.mp4box.boxParser.MoofBox>;
+	@:optional var ftyp : js.hxnodejs.mp4box.boxParser.FtypBox;
+	@:optional var moov : js.hxnodejs.mp4box.boxParser.MoovBox;
+
+	function new(?stream:DataStream) : Void;
+	function init(?options:FileOptions) : ISOFile;
+	function addTrack(?options:TrackOptions) : Float;
+	function addSample(track:Float, data:ArrayBuffer, ?options:SampleOptions) : Sample;
+	function createSingleSampleMoof(sample:Sample) : js.hxnodejs.mp4box.boxParser.MoofBox;
+	function getTrackById(id:Float) : haxe.extern.EitherType<js.hxnodejs.mp4box.boxParser.TrakBox, {}>;
+	function getTrexById(id:Float) : haxe.extern.EitherType<js.hxnodejs.mp4box.boxParser.TrexBox, {}>;
+	static function writeInitializationSegment(ftyp:js.hxnodejs.mp4box.boxParser.FtypBox, moov:js.hxnodejs.mp4box.boxParser.MoovBox, total_duration:Float, sample_duration:Float) : ArrayBuffer;
+	function add(name:Dynamic) : Dynamic;
+	function addBox(box:Dynamic) : Dynamic;
+	function appendBuffer(ab:Dynamic, last:Dynamic) : Dynamic;
+	function buildSampleLists() : Void;
+	function buildTrakSampleLists(trak:Dynamic) : Void;
+	function checkBuffer(ab:Dynamic) : Dynamic;
+	function createFragment(track_id:Dynamic, sampleNumber:Dynamic, stream_:Dynamic) : Dynamic;
+	function equal(b:Dynamic) : Dynamic;
+	function flattenItemInfo() : Void;
+	function flush() : Void;
+	function getAllocatedSampleDataSize() : Dynamic;
+	function getBox(type:Dynamic) : Dynamic;
+	function getBoxes(type:Dynamic, returnEarly:Dynamic) : Dynamic;
+	function getBuffer() : Dynamic;
+	function getCodecs() : Dynamic;
+	function getInfo() : Dynamic;
+	function getItem(item_id:Dynamic) : Dynamic;
+	function getMetaHandler() : Dynamic;
+	function getPrimaryItem() : Dynamic;
+	function getSample(trak:Dynamic, sampleNum:Dynamic) : Dynamic;
+	function getTrackSample(track_id:Dynamic, number:Dynamic) : Dynamic;
+	function getTrackSamplesInfo(track_id:Dynamic) : Dynamic;
+	function hasIncompleteMdat() : Dynamic;
+	function hasItem(name:Dynamic) : Dynamic;
+	function initializeSegmentation() : Dynamic;
+	function itemToFragmentedTrackFile(_options:Dynamic) : Dynamic;
+	function parse() : Void;
+	function print(output:Dynamic) : Void;
+	function processIncompleteBox(ret:Dynamic) : Dynamic;
+	function processIncompleteMdat() : Dynamic;
+	function processItems(callback:Dynamic) : Void;
+	function processSamples(last:Dynamic) : Void;
+	function releaseItem(item_id:Dynamic) : Dynamic;
+	function releaseSample(trak:Dynamic, sampleNum:Dynamic) : Dynamic;
+	function releaseUsedSamples(id:Dynamic, sampleNum:Dynamic) : Void;
+	function resetTables() : Void;
+	function restoreParsePosition() : Dynamic;
+	function save(name:Dynamic) : Void;
+	function saveParsePosition() : Void;
+	function seek(time:Dynamic, useRap:Dynamic) : Dynamic;
+	function seekTrack(time:Dynamic, useRap:Dynamic, trak:Dynamic) : Dynamic;
+	function setExtractionOptions(id:Dynamic, user:Dynamic, options:Dynamic) : Void;
+	function setSegmentOptions(id:Dynamic, user:Dynamic, options:Dynamic) : Void;
+	function start() : Void;
+	function stop() : Void;
+	function unsetExtractionOptions(id:Dynamic) : Void;
+	function unsetSegmentOptions(id:Dynamic) : Void;
+	function updateSampleLists() : Void;
+	function updateUsedBytes(box:Dynamic, ret:Dynamic) : Void;
+	function write(outstream:Dynamic) : Void;
+	static function initSampleGroups(trak:Dynamic, traf:Dynamic, sbgps:Dynamic, trak_sgpds:Dynamic, traf_sgpds:Dynamic) : Void;
+	static function process_sdtp(sdtp:Dynamic, sample:Dynamic, number:Dynamic) : Void;
+	static function setSampleGroupProperties(trak:Dynamic, sample:Dynamic, sample_number:Dynamic, sample_groups_info:Dynamic) : Void;
+}

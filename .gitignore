@@ -1,0 +1,4 @@
+library/library.zip
+test/node_modules
+test/bin/haxe.js
+test/bin/index.js

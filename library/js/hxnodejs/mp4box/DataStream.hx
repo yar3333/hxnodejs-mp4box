@@ -1,0 +1,84 @@
+package js.hxnodejs.mp4box;
+
+import js.lib.Uint8Array;
+import js.lib.Int8Array;
+import js.lib.Float32Array;
+import js.lib.Float64Array;
+import js.lib.Uint16Array;
+import js.lib.Uint32Array;
+import js.lib.Int16Array;
+import js.lib.Int32Array;
+import js.lib.ArrayBuffer;
+
+@:jsRequire("mp4box", "DataStream")
+extern class DataStream
+{
+	static var endianness : Bool;
+	static var LITTLE_ENDIAN : Bool;
+	static var BIG_ENDIAN : Bool;
+
+	function new(?buffer:ArrayBuffer, ?byteOffset:Float, ?endianness:Bool) : Void;
+	function getPosition() : Float;
+	function seek(pos:Float) : Void;
+	function isEof() : Bool;
+	function mapFloat32Array(length:Float, ?e:Bool) : Dynamic;
+	function mapFloat64Array(length:Float, ?e:Bool) : Dynamic;
+	function mapInt16Array(length:Float, ?e:Bool) : Dynamic;
+	function mapInt32Array(length:Float, ?e:Bool) : Dynamic;
+	function mapInt8Array(length:Float) : Dynamic;
+	function mapUint16Array(length:Float, ?e:Bool) : Dynamic;
+	function mapUint32Array(length:Float, ?e:Bool) : Dynamic;
+	function mapUint8Array(length:Float) : Dynamic;
+	function readInt32Array(length:Float, ?endianness:Bool) : Int32Array;
+	function readInt16Array(length:Float, ?endianness:Bool) : Int16Array;
+	function readInt8Array(length:Float) : Int8Array;
+	function readUint32Array(length:Float, ?endianness:Bool) : Uint32Array;
+	function readUint16Array(length:Float, ?endianness:Bool) : Uint16Array;
+	function readUint8Array(length:Float) : Uint8Array;
+	function readFloat64Array(length:Float, ?endianness:Bool) : Float64Array;
+	function readFloat32Array(length:Float, ?endianness:Bool) : Float32Array;
+	function readInt32(?endianness:Bool) : Float;
+	function readInt16(?endianness:Bool) : Float;
+	function readInt8() : Float;
+	function readUint32(?endianness:Bool) : Float;
+	function readUint24() : Float;
+	function readUint16(?endianness:Bool) : Float;
+	function readUint8() : Float;
+	function readFloat32(?endianness:Bool) : Float;
+	function readFloat64(?endianness:Bool) : Float;
+	function memcpy(dst:ArrayBuffer, dstOffset:Float, src:ArrayBuffer, srcOffset:Float, byteLength:Float) : Void;
+	function save(filename:String) : Void;
+	function shift(offset:Float) : Void;
+	function writeInt32Array(arr:Int32Array, ?endianness:Bool) : Void;
+	function writeInt16Array(arr:Int16Array, ?endianness:Bool) : Void;
+	function writeInt8Array(arr:Int8Array) : Void;
+	function writeUint32Array(arr:Uint32Array, ?endianness:Bool) : Void;
+	function writeUint16Array(arr:Uint16Array, ?endianness:Bool) : Void;
+	function writeUint8Array(arr:Uint8Array) : Void;
+	function writeFloat64Array(arr:Float64Array, ?endianness:Bool) : Void;
+	function writeFloat32Array(arr:Float32Array, ?endianness:Bool) : Void;
+	function writeInt32(v:Float, ?endianness:Bool) : Void;
+	function writeInt16(v:Float, ?endianness:Bool) : Void;
+	function writeInt8(v:Float) : Void;
+	function writeUint32(v:Float, ?endianness:Bool) : Void;
+	function writeUint16(v:Float, ?endianness:Bool) : Void;
+	function writeUint8(v:Float) : Void;
+	function writeFloat32(v:Float, ?endianness:Bool) : Void;
+	function writeFloat64(v:Float, ?endianness:Bool) : Void;
+	function writeUCS2String(s:String, ?endianness:Bool, ?length:Float) : Void;
+	function writeString(s:String, ?encoding:String, ?length:Float) : Void;
+	function writeCString(s:String, ?length:Float) : Void;
+	function writeUint64(v:Float) : Void;
+	function writeUint24(v:Float) : Void;
+	function adjustUint32(pos:Float, v:Float) : Void;
+	function readCString(length:Dynamic) : Dynamic;
+	function readInt64() : Dynamic;
+	function readString(length:Dynamic, encoding:Dynamic) : Dynamic;
+	function readUint64() : Dynamic;
+	function writeStruct(structDefinition:Dynamic, struct:Dynamic) : Void;
+	function writeType(t:Dynamic, v:Dynamic, struct:Dynamic) : Dynamic;
+	static function arrayToNative(array:Dynamic, arrayIsLittleEndian:Dynamic) : Dynamic;
+	static function flipArrayEndianness(array:Dynamic) : Dynamic;
+	static function memcpy(dst:Dynamic, dstOffset:Dynamic, src:Dynamic, srcOffset:Dynamic, byteLength:Dynamic) : Void;
+	static function nativeToEndian(array:Dynamic, littleEndian:Dynamic) : Dynamic;
+}

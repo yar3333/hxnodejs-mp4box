@@ -1,0 +1,11 @@
+{
+  "name": "test",
+  "main": "bin/index.js",
+  "dependencies": {
+    "mp4box": "^0.5.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  }
+}
